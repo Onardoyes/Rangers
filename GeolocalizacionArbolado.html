@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Árboles</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: { lat: 12.34, lng: 56.78 } // Coordenadas iniciales
+            });
+
+            const trees = [
+                { lat: 12.34, lng: 56.78, especie: "Roble", color: "#FF5733" },
+                { lat: 12.35, lng: 56.79, especie: "Pino", color: "#33FF57" }
+            ];
+
+            trees.forEach(tree => {
+                new google.maps.Marker({
+                    position: { lat: tree.lat, lng: tree.lng },
+                    map: map,
+                    title: tree.especie,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 10,
+                        fillColor: tree.color,
+                        fillOpacity: 1,
+                        strokeWeight: 1
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <div id="map" style="height: 500px; width: 100%;"></div>
+</body>
+</html>
