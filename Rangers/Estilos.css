@@ -48,6 +48,9 @@
     width: 50%;
     vertical-align: middle;
 }
+#terminosCondiciones{
+    align-items: center;
+}
 .textoNavegacion{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
